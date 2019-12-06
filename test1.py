@@ -50,3 +50,11 @@ print
 # TODO: open correct Joseph image
 im1 = Image.open('./graphics/anger.png')
 im1.show()
+copyIm = Image.open('test_images/rajeev.jpg').copy()
+copyIm.show()
+copyIm.paste(im1)
+copyIm.save('test_images/rajeevjoseph.jpg')
+copyIm.show()
+# last = Image.open('test_images/rajeevjoseph.jpg')
+# last.show()
+# ret.show()
