@@ -53,18 +53,11 @@ print
 
 # TODO: open correct Joseph image
 im1 = Image.open('./graphics/anger.png')
-im1.show()
 
 copyIm = Image.open('test_images/rajeev.jpg').copy()
-copyIm.show()
 
 fml = im1.resize((size, size))
-fml.show()
 
-
-copyIm.paste(fml)
+copyIm.paste(fml, (0,0), fml)
 copyIm.save('test_images/rajeevjoseph.jpg')
 copyIm.show()
-# last = Image.open('test_images/rajeevjoseph.jpg')
-# last.show()
-# ret.show()
