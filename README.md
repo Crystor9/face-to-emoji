@@ -2,10 +2,11 @@
 Thomas, Natalie, Kelvin, Christie
 
 
-# Abstract
+## Abstract
 
-# Model
+## Model
 
-# Cool Results
+## Cool Results
 
-# References
+## References
+[Facial Detection, Recognition and Emotion Detection](https://github.com/priya-dwivedi/face_and_emotion_detection/blob/master/Facial%20Detection%2C%20Recognition%20and%20Emotion%20Detection.md)
