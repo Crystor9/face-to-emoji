@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFilter
 from matplotlib import pyplot as plt
 import numpy as np
 import face_recognition
@@ -45,3 +45,8 @@ label_map = dict((v,k) for k,v in emotion_dict.items())
 predicted_label = label_map[predicted_class]
 print(predicted_label)
 print
+
+
+# TODO: open correct Joseph image
+im1 = Image.open('./graphics/anger.png')
+im1.show()
