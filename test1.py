@@ -10,6 +10,9 @@ import cv2
 emotion_dict= {'Angry': 0, 'Sad': 5, 'Neutral': 4, 'Disgust': 1, 'Surprise': 6, 'Fear': 2, 'Happy': 3}
 
 
+size = 10
+
+
 # Load the jpg file into a numpy array
 image = face_recognition.load_image_file("test_images/rajeev.jpg")
 
@@ -30,6 +33,7 @@ for face_location in face_locations:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
     # pil_image.show()
+    size = top - bottom
 
 
 
@@ -50,3 +54,17 @@ print
 # TODO: open correct Joseph image
 im1 = Image.open('./graphics/anger.png')
 im1.show()
+
+copyIm = Image.open('test_images/rajeev.jpg').copy()
+copyIm.show()
+
+fml = im1.resize(copyIm.size)
+fml.show()
+
+
+copyIm.paste(fml)
+copyIm.save('test_images/rajeevjoseph.jpg')
+copyIm.show()
+# last = Image.open('test_images/rajeevjoseph.jpg')
+# last.show()
+# ret.show()
