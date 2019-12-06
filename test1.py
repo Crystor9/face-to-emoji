@@ -33,7 +33,7 @@ for face_location in face_locations:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
     # pil_image.show()
-    size = top - bottom
+    size = bottom - top
 
 
 
@@ -58,7 +58,7 @@ im1.show()
 copyIm = Image.open('test_images/rajeev.jpg').copy()
 copyIm.show()
 
-fml = im1.resize(copyIm.size)
+fml = im1.resize((size, size))
 fml.show()
 
 
