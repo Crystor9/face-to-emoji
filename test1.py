@@ -11,6 +11,7 @@ emotion_dict= {'Angry': 0, 'Sad': 5, 'Neutral': 4, 'Disgust': 1, 'Surprise': 6, 
 
 
 size = 10
+place = (0,0)
 
 
 # Load the jpg file into a numpy array
@@ -34,6 +35,7 @@ for face_location in face_locations:
     pil_image = Image.fromarray(face_image)
     # pil_image.show()
     size = bottom - top
+    place = (left, top)
 
 
 
@@ -58,6 +60,6 @@ copyIm = Image.open('./face_and_emotion_detection2/test_images/rajeev.jpg').copy
 
 fml = im1.resize((size, size))
 
-copyIm.paste(fml, (0,0), fml)
+copyIm.paste(fml, place, fml)
 copyIm.save('./face_and_emotion_detection2/test_images/rajeevjoseph.jpg')
 copyIm.show()
