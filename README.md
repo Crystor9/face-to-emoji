@@ -3,6 +3,7 @@ Thomas, Natalie, Kelvin, Christie
 
 
 ## Abstract
+A suite of programs that allow Joesph faces to be superimposed on any other image. The first program detects the facial expression of the image and display a matching Joseph's face. The second program fills each pixels of the given image with Joseph's face.
 
 ## Model
 
