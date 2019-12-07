@@ -11,3 +11,6 @@ A suite of programs that allow Joesph faces to be superimposed on any other imag
 
 ## References
 [Facial Detection, Recognition and Emotion Detection](https://github.com/priya-dwivedi/face_and_emotion_detection/blob/master/Facial%20Detection%2C%20Recognition%20and%20Emotion%20Detection.md)
+
+## Project Report
+[Google Doc Report](https://docs.google.com/document/d/1a0M0Hjw012ErB-YkpdJMDKtJS0atwWzcN2FlRIdGFQA/edit#)
