@@ -28,14 +28,14 @@ for face_location in face_locations:
     
     # Print the location of each face in this image
     top, right, bottom, left = face_location
-    print("A face is located at pixel location Top: {}, Left: {}, Bottom: {}, Right: {}\n\n".format(top, left, bottom, right))
+    #print("A face is located at pixel location Top: {}, Left: {}, Bottom: {}, Right: {}\n\n".format(top, left, bottom, right))
     
     # You can access the actual face itself like this:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
     # pil_image.show()
-    size = bottom - top
-    place = (left, top)
+    size = int((bottom - top) * 1.2)
+    place = (left - 5, top - 5)
 
 
 
@@ -46,15 +46,25 @@ model = load_model("./face_and_emotion_detection2/emotion_detector_models/model_
 
 
 predicted_class = np.argmax(model.predict(face_image))
-print(predicted_class)
 label_map = dict((v,k) for k,v in emotion_dict.items())
 predicted_label = label_map[predicted_class]
-print(predicted_label)
-print
 
 
 # TODO: open correct Joseph image
 im1 = Image.open('./face_and_emotion_detection2/graphics/anger.png')
+# emotion_dict= {'Angry': 0, 'Sad': 5, 'Neutral': 4, 'Disgust': 1, 'Surprise': 6, 'Fear': 2, 'Happy': 3}
+if predicted_class == 1:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/disgust.png')
+elif predicted_class == 2:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/fear.png')
+elif predicted_class == 3:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/happy.png')
+if predicted_class == 4:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/neutral.png')
+elif predicted_class == 5:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/sad.png')
+elif predicted_class == 6:
+    im1 =Image.open('./face_and_emotion_detection2/graphics/surprise.png')
 
 copyIm = Image.open('./face_and_emotion_detection2/test_images/rajeev.jpg').copy()
 
