@@ -5,8 +5,25 @@ import face_recognition
 import keras
 from keras.models import load_model
 import cv2
+import sys
 
 
+
+print ("the script has the name %s" % (sys.argv[0]))
+arguments = len(sys.argv) - 1
+output = './temp.jpg'
+
+print ("the script is called with %i arguments" % (arguments))
+
+file = "face_and_emotion_detection2/test_images/rajeev.jpg"
+if arguments == 1:
+    file = sys.argv[1]
+elif arguments == 2:
+    file = sys.argv[1]
+    output = sys.argv[2]
+
+
+       
 emotion_dict= {'Angry': 0, 'Sad': 5, 'Neutral': 4, 'Disgust': 1, 'Surprise': 6, 'Fear': 2, 'Happy': 3}
 
 
@@ -15,7 +32,7 @@ place = (0,0)
 
 
 # Load the jpg file into a numpy array
-image = face_recognition.load_image_file("./face_and_emotion_detection2/test_images/rajeev.jpg")
+image = face_recognition.load_image_file("./" + file)
 
 # Find all the faces in the image using the default HOG-based model.
 # This method is fairly accurate, but not as accurate as the CNN model and not GPU accelerated.
@@ -57,6 +74,8 @@ if predicted_class == 1:
     im1 =Image.open('./face_and_emotion_detection2/graphics/disgust.png')
 elif predicted_class == 2:
     im1 =Image.open('./face_and_emotion_detection2/graphics/fear.png')
+    print("one")
+    im1.show()
 elif predicted_class == 3:
     im1 =Image.open('./face_and_emotion_detection2/graphics/happy.png')
 if predicted_class == 4:
@@ -66,10 +85,10 @@ elif predicted_class == 5:
 elif predicted_class == 6:
     im1 =Image.open('./face_and_emotion_detection2/graphics/surprise.png')
 
-copyIm = Image.open('./face_and_emotion_detection2/test_images/rajeev.jpg').copy()
+copyIm = Image.open('./' + file).copy()
 
 fml = im1.resize((size, size))
 
 copyIm.paste(fml, place, fml)
-copyIm.save('./face_and_emotion_detection2/test_images/rajeevjoseph.jpg')
+copyIm.save(output)
 copyIm.show()
