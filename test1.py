@@ -11,11 +11,13 @@ import sys
 
 print ("the script has the name %s" % (sys.argv[0]))
 arguments = len(sys.argv) - 1
-output = './temp.jpg'
+
 
 print ("the script is called with %i arguments" % (arguments))
 
-file = "face_and_emotion_detection2/test_images/rajeev.jpg"
+default = 'alietest.jpeg'
+file = "face_and_emotion_detection2/test_images/" + default
+output = './output/' + default
 if arguments == 1:
     file = sys.argv[1]
 elif arguments == 2:
@@ -51,8 +53,8 @@ for face_location in face_locations:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
     # pil_image.show()
-    size = int((bottom - top) * 1.2)
-    place = (left - 5, top - 5)
+    size = int((bottom - top) * 1.55)
+    place = (int(left - .1 * size), int(top - .25 * size))
 
 
 
@@ -74,8 +76,6 @@ if predicted_class == 1:
     im1 =Image.open('./face_and_emotion_detection2/graphics/disgust.png')
 elif predicted_class == 2:
     im1 =Image.open('./face_and_emotion_detection2/graphics/fear.png')
-    print("one")
-    im1.show()
 elif predicted_class == 3:
     im1 =Image.open('./face_and_emotion_detection2/graphics/happy.png')
 if predicted_class == 4:
